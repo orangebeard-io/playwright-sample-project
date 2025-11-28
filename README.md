@@ -1,35 +1,43 @@
-# Playwright sample project
+# Sample tests to demo the Playwright Listener
 
 ## Install dependencies
 ````shell
 npm install
 ````
 
-## Configure Orangebeard
+### Configure Orangebeard reporter
 Ensure that: `reporter: [['@orangebeard-io/playwright-orangebeard-reporter']]` is configured in playwright.config.ts  
   
 Create orangebeard.json:
 ```shell
 {
-	"endpoint": "https://praegus.orangebeard.app",
-	"token": "<LISTENER_TOKEN>",
-	"project": "<PROJECT>",
-	"testset": "Playwright test examples",
-	"description": "A run from playwright",
-	"attributes": [
-		{
-			"key": "Commit",
-			"value": "a375342a"
-		},
-		{
-			"value": "Demo"
-		}
-	],
-	"referenceUrl": "https://gitlab.com/orangebeard-io/listener-api/-/pipelines/1637473171"
+	"endpoint": "https://app.orangebeard.io/[ORGANIZATION]",
+	"token": "[LISTENER_TOKEN]",
+	"project": "example-project",
+    "testset": "Playwright Demo",
+    "description": "Playwright run",
+    "attributes": [
+      {
+        "key": "Tool",
+        "value": "Playwright"
+      }
+    ],
+    "referenceUrl": "https://docs.orangebeard.io/"
 }
 ```
 
-## Run tests
+__It's good practice__ to omit the token from the json file and get it from your env:
+
+Windows cmd:
+```
+set orangebeard_token=[LISTENER TOKEN]
+```
+Linux/Mac:
+```
+export orangebeard_token=[LISTENER TOKEN]
+```
+
+### Run the tests
 
 ````shell
 npm run test
