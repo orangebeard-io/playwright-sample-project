@@ -39,6 +39,6 @@ export orangebeard_token=[LISTENER TOKEN]
 
 ### Run the tests
 
-````shell
+```shell
 npm run test
 ```
